@@ -14,6 +14,6 @@
         android:pathData="M41,30h4v10h-4z M63,30h4v10h-4z" />
     <!-- day squares -->
     <path
-        android:fillColor="#1E6FD9"
+        android:fillColor="#F58220"
         android:pathData="M38,48h8v8h-8z M50,48h8v8h-8z M62,48h8v8h-8z M38,60h8v8h-8z M50,60h8v8h-8z" />
 </vector>

@@ -68,7 +68,7 @@ object CalendarSync {
             put(Calendars.ACCOUNT_TYPE, CalendarContract.ACCOUNT_TYPE_LOCAL)
             put(Calendars.NAME, OWN_NAME)
             put(Calendars.CALENDAR_DISPLAY_NAME, OWN_NAME)
-            put(Calendars.CALENDAR_COLOR, Color.parseColor("#1E6FD9"))
+            put(Calendars.CALENDAR_COLOR, Color.parseColor("#F58220"))
             put(Calendars.CALENDAR_ACCESS_LEVEL, Calendars.CAL_ACCESS_OWNER)
             put(Calendars.OWNER_ACCOUNT, OWN_NAME)
             put(Calendars.CALENDAR_TIME_ZONE, DeltionApi.zone.id)

@@ -36,6 +36,8 @@ object DeltionApi {
     private const val BASE = "https://roosters.deltion.nl"
     private const val USER_AGENT = "Mozilla/5.0 (Linux; Android 14) DeltionRoosterApp/1.0"
     private const val SESSION_MAX_AGE = 30 * 60 * 1000L
+    private const val NO_ANSWER =
+        "roosters.deltion.nl didn't answer. If a VPN is on, turn it off and try again."
 
     val zone: ZoneId = ZoneId.of("Europe/Amsterdam")
     private val ymd: DateTimeFormatter = DateTimeFormatter.BASIC_ISO_DATE
@@ -64,7 +66,15 @@ object DeltionApi {
             c.instanceFollowRedirects = true
             c.setRequestProperty("User-Agent", USER_AGENT)
             c.setRequestProperty("Accept", "application/json, text/html;q=0.9, */*;q=0.8")
-            val code = c.responseCode
+            val code = try {
+                c.responseCode
+            } catch (e: java.net.UnknownHostException) {
+                throw IOException("No internet, or roosters.deltion.nl can't be found")
+            } catch (e: java.net.SocketTimeoutException) {
+                throw IOException(NO_ANSWER)
+            } catch (e: java.net.ConnectException) {
+                throw IOException(NO_ANSWER)
+            }
             val stream = if (code in 200..299) c.inputStream else c.errorStream
             val body = stream?.bufferedReader()?.use { it.readText() } ?: ""
             if (code !in 200..299) throw IOException("Deltion's server answered with error $code")
