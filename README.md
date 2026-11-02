@@ -12,7 +12,7 @@ gradlew assembleDebug
 
 The APK ends up in `app/build/outputs/apk/debug/app-debug.apk`.
 
-**On GitHub:** push this folder to a repo. The "Build APK" workflow runs on every push. Open the run under the Actions tab and download `DeltionRooster-apk` at the bottom.
+**On GitHub:** every push to `main` builds the app and puts `DeltionRooster.apk` on the [latest release](../../releases/latest).
 
 Both ways use the same signing key (`app/debug.keystore`), so a new build installs over the old one.
 
