@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- calendar page -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,36h36a4,4 0,0 1,4 4v32a4,4 0,0 1,-4 4h-36a4,4 0,0 1,-4 -4v-32a4,4 0,0 1,4 -4z" />
+    <!-- rings -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M41,30h4v10h-4z M63,30h4v10h-4z" />
+    <!-- day squares -->
+    <path
+        android:fillColor="#1E6FD9"
+        android:pathData="M38,48h8v8h-8z M50,48h8v8h-8z M62,48h8v8h-8z M38,60h8v8h-8z M50,60h8v8h-8z" />
+</vector>
