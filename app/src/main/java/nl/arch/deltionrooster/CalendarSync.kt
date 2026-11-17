@@ -126,6 +126,12 @@ object CalendarSync {
 
         val lessons = DeltionApi.fetchRoster(group, first, last).filter { it.start in from until to }
 
+        // An empty answer is more likely a blocked or broken server than 4 weeks
+        // without lessons, so leave the calendar as it is.
+        if (lessons.isEmpty()) {
+            return "Deltion sent no lessons for the next $WEEKS_AHEAD weeks, so nothing was changed"
+        }
+
         val wanted = LinkedHashMap<String, ContentValues>()
         for (l in lessons) {
             val v = eventValues(calId, l)
